@@ -1,0 +1,3 @@
+virions:
+  - name: BlockData
+    version: ^1.0.1

@@ -1,9 +1,9 @@
 ---
 name: BlockDataRecorder
-version: 0.0.7
+version: 0.0.8
 main: NhanAZ\BlockDataRecorder\Main
 api: 5.0.0
-website: https://github.com/NhanAZ
+website: https://github.com/NhanAZ-Plugins/BlockDataRecorder
 author: NhanAZ
 description: The data of an item block will not be lost when the block is placed
 ...
