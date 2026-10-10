@@ -15,10 +15,11 @@ use pocketmine\nbt\TreeRoot;
 
 $item = VanillaBlocks::OAK_PLANKS()->asItem();
 $item->setCustomName('Migrated block');
+$item->setLore(['Recorded line']);
 $serializer = new LittleEndianNbtSerializer();
 $encoded = $serializer->write(new TreeRoot($item->nbtSerialize()));
 $restored = Item::nbtDeserialize($serializer->read($encoded)->mustGetCompoundTag());
-if ($restored->getCustomName() !== $item->getCustomName() || $restored->getBlock()->getTypeId() !== $item->getBlock()->getTypeId()) {
+if ($restored->getCustomName() !== $item->getCustomName() || $restored->getLore() !== $item->getLore() || $restored->getBlock()->getTypeId() !== $item->getBlock()->getTypeId()) {
 	throw new RuntimeException('New item NBT did not round trip');
 }
 
@@ -29,7 +30,7 @@ $legacy = Item::legacyJsonDeserialize([
 	'count' => 2,
 	'nbt_b64' => base64_encode($serializer->write(new TreeRoot($item->getNamedTag()))),
 ]);
-if ($legacy->getCustomName() !== $item->getCustomName() || $legacy->getBlock()->getTypeId() !== $item->getBlock()->getTypeId() || $legacy->getCount() !== 2) {
+if ($legacy->getCustomName() !== $item->getCustomName() || $legacy->getLore() !== $item->getLore() || $legacy->getBlock()->getTypeId() !== $item->getBlock()->getTypeId() || $legacy->getCount() !== 2) {
 	throw new RuntimeException('Legacy item JSON did not retain the block item');
 }
 
