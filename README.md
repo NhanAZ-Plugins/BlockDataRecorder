@@ -31,7 +31,7 @@ If a stored item cannot be decoded or does not match the block type, the plugin 
 
 ## Build and development
 
-The [build workflow](.github/workflows/build.yml) checks the migration behavior, runs PHPStan at maximum level, and uses [DevTools](https://github.com/NhanAZ/DevTools) to generate and validate a standalone PHAR. The [BlockData submodule](virions/BlockData) is pinned to a reviewed commit. Clone with submodules to reproduce the build locally.
+The [build workflow](.github/workflows/build.yml) checks the migration behavior, runs PHPStan at maximum level, and uses [DevTools](https://github.com/AxolotlBucketLabs/DevTools) to generate and validate a standalone PHAR. The [BlockData submodule](virions/BlockData) is pinned to a reviewed commit. Clone with submodules to reproduce the build locally.
 
 ## License and support
 
